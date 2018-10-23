@@ -1,0 +1,26 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Suite" verbose="1">
+
+    <listeners>
+        <listener class-name="com.epam.calculator.listener.MyTestListener"></listener>
+    </listeners>
+
+    <test name="Calculator tests">
+        <groups>
+
+            <run>
+                <include name="div"></include>
+                <include name="mult"></include>
+            </run>
+
+            <dependencies>
+                <group name="div" depends-on="mult"/>
+            </dependencies>
+        </groups>
+
+        <packages>
+            <package name="com.epam.calculator.tests.testng.arithmeticoperations"></package>
+        </packages>
+    </test>
+</suite>

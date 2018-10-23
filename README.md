@@ -1,1 +1,1 @@
-# CalcUnitTests
+There are unit tests for simple calculator using JUnit and testNG

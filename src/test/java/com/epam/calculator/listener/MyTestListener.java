@@ -1,19 +1,23 @@
 package com.epam.calculator.listener;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.testng.IInvokedMethod;
 import org.testng.IInvokedMethodListener;
 import org.testng.ITestResult;
 
 public class MyTestListener implements IInvokedMethodListener {
 
+    private static Logger logger = LogManager.getLogger();
+
     @Override
     public void beforeInvocation(IInvokedMethod method, ITestResult testResult) {
-        System.out.println("method started: " + method.getTestMethod().getMethodName());
+        logger.info("method started: " + method.getTestMethod().getMethodName());
 
     }
 
     @Override
     public void afterInvocation(IInvokedMethod method, ITestResult testResult) {
-        System.out.println("method finished [" + testResult.getStatus() + "]: " + method.getTestMethod().getMethodName() + "\n");
+        logger.info("method finished [" + testResult.getStatus() + "]: " + method.getTestMethod().getMethodName() + "\n");
     }
 }

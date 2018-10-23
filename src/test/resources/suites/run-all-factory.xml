@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+
+<suite name="Run all factory" verbose="1" parallel="tests" thread-count="4">
+    <listeners>
+        <listener class-name="com.epam.calculator.listener.MyTestListener"></listener>
+    </listeners>
+
+    <test name="Calculator tests">
+        <parameter name="setup-message" value="Config prepare calculator"></parameter>
+        
+        <groups>
+            <run>
+                <exclude name="sin"></exclude>
+            </run>
+        </groups>
+
+        <packages>
+            <package name="com.epam.calculator.tests.testng.factory"></package>
+        </packages>
+
+    </test>
+
+</suite>
